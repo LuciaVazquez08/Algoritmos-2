@@ -31,7 +31,7 @@ def calculate_average_of_sepal_width(species_generator, target_species):
     return total_sum / count if count > 0 else 0
 
 if __name__ == "__main__":
-    path = "C:\Users\Usuario\algo2"
+    path = "C://Users//Usuario//algo2//IRIS.csv"
     rows = csv_line_reader(path)
     headers = next(rows)
     rows_generator = csv_rows_generator(rows)
