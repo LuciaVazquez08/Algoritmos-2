@@ -1,10 +1,7 @@
-import csv
-
 def csv_line_reader(path):
     with open(path, newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            yield row
+        for row in csvfile:
+            yield row.strip().split(',')
 
 def csv_rows_generator(rows):
     for line in rows:
@@ -19,7 +16,7 @@ def calculate_sum_of_sepal_width(species_generator, target_species):
     for species in species_generator:
         if species['species'] == target_species:
             total_sum += float(species['sepal_width'])
-    return total_sum
+    return round(total_sum,2)
 
 def calculate_average_of_sepal_width(species_generator, target_species):
     count = 0
@@ -28,7 +25,7 @@ def calculate_average_of_sepal_width(species_generator, target_species):
         if species['species'] == target_species:
             total_sum += float(species['sepal_width'])
             count += 1
-    return total_sum / count if count > 0 else 0
+    return round(total_sum / count if count > 0 else 0,2)
 
 if __name__ == "__main__":
     path = "C://Users//Usuario//algo2//IRIS.csv"
