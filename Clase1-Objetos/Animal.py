@@ -1,4 +1,6 @@
-class Animal:
+from abc import ABC
+
+class Animal(ABC):
     def hablar(self):
         pass
 
