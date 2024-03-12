@@ -1,0 +1,57 @@
+# SHORTCUTS
+# structural pattern matching
+def funcion(variable):
+    match variable:
+        case a:
+            return a
+        case _ :
+            retrun wildcard
+
+# lambda
+lambda <lista de parametros>: <expresion>
+
+
+# TRABAJO SOBRE CONJUNTOS DE ELEMENTOS
+# Callable[[tipos], tipo de retorno] (ver clase 2 - orden superior para uso de *args y **kwargs)
+from typing import Callable
+
+def aplicar_operacion(lista: Sequence[T], operacion: Callable[[T], T]) -> Sequence[T]:
+    resultado = []
+    for elemento in lista:
+        resultado.append(operacion(elemento))
+    return resultado
+
+# map(funcion, iterable, *iterables)
+map(lambda x: x*x, iterable[int])
+
+# filter(funcion, iterable)
+
+# reduce(acumulado, iterble, *valor inicial)
+EL MAS VERSATIL:
+    Operaciones sobre conjunto
+    Seleccion
+
+
+# NORMALIZACION DE FUNCIONES
+# partial()
+from functools import partial
+
+def funcion(agr1, arg2):
+    retrun arg1 + arg2
+
+funcion_parcial = partial(funcion, arg1)
+funcion_parcial(arg2)
+
+# curry ()
+from pymonad.tools import curry
+
+@curry(cant de argumentos)
+def funcion(agr1, arg2):
+    retrun arg1 + arg2
+
+uso 1:
+funcion_parcial = funcion(arg1)
+funcion_parcial(arg2)
+
+uso 2:
+producto_curry = curry(cant_argumentos,funcion)

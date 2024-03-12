@@ -16,4 +16,7 @@ def generadoraPrimos():
             yield num
         num += 2 
 
-                    
+primes_generator = generadoraPrimos()
+
+for _ in range(100):
+    print(next(primes_generator))             
