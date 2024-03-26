@@ -1,6 +1,3 @@
-from math import factorial
-
-
 def permutar(lista_og: list[int]) -> list[list[int]]:    
     permutaciones = []
 
