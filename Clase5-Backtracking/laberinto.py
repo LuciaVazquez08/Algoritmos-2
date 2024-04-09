@@ -50,12 +50,13 @@ def recorrer(camino_previo: list[(int,int)], laberinto) -> (bool, list[(int,int)
         direcciones = ['N', 'S', 'O', 'E']
         while direcciones and not salida_encontrada:
             nueva_posicion = avanzar(posicion_actual, direcciones.pop())
-            if hay_paso(nueva_posicion, laberinto) and nueva_posicion not in camino_previo:
+            if hay_paso(laberinto, nueva_posicion) and nueva_posicion not in camino_previo:
                 camino_actual = camino_previo.copy()
                 camino_actual.append(nueva_posicion)
                 salida_encontrada, solucion = recorrer(camino_actual, laberinto)
-            
-        return salida_encontrada, solucion
+            if salida_encontrada:
+                return salida_encontrada, solucion
+        return False, []
     
 def es_salida(posicion: (int, int), laberinto):
     x, y = posicion
@@ -71,4 +72,4 @@ for i in range(len(laberinto)):
     print(laberinto[i]) 
 
 camino = recorrer([], laberinto)
-print(camino)
+print(camino[1])
