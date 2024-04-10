@@ -1,6 +1,6 @@
 from random import choice
 
-def romper(laberinto, posicion_actual, salida) -> (bool, list[list[bool]]):
+def romper(laberinto, posicion_actual, salida) -> (bool, list[list[bool]]): # type: ignore
     if posicion_actual == salida:
         return True, laberinto
     else:
@@ -16,7 +16,7 @@ def romper(laberinto, posicion_actual, salida) -> (bool, list[list[bool]]):
                 salida_encontrada, laberinto = romper(laberinto, nueva_posicion, salida)
         return salida_encontrada, laberinto
 
-def avanzar(posicion_actual, direccion) -> (int, int):
+def avanzar(posicion_actual, direccion) -> (int, int): # type: ignore
     x, y = posicion_actual
     if direccion == 'N':
         return x, y +1
@@ -38,7 +38,7 @@ def generar_laberinto(n: int) -> list[list[bool]]:
     salida = (n-1,n-1)
     return romper(laberinto, entrada, salida)[1]
 
-def recorrer(camino_previo: list[(int,int)], laberinto) -> (bool, list[(int,int)]):
+def recorrer(camino_previo: list[(int,int)], laberinto) -> (bool, list[(int,int)]): # type: ignore
     if camino_previo:
         posicion_actual = camino_previo[-1]
     else:
@@ -58,7 +58,7 @@ def recorrer(camino_previo: list[(int,int)], laberinto) -> (bool, list[(int,int)
                 return salida_encontrada, solucion
         return False, []
     
-def es_salida(posicion: (int, int), laberinto):
+def es_salida(posicion: (int, int), laberinto): # type: ignore
     x, y = posicion
     lado = len(laberinto) - 1
     return x == lado == y 
