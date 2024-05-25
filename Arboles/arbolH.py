@@ -58,6 +58,19 @@ class ArbolH(Generic[T, S]):
             ) and self._tipo_hoja == otro._tipo_hoja
         )
     
+    def es_hoja(self) -> bool:
+        return len(self._subarboles) == 0
 
-# Ejercicio: Validar árbol completo
-# Implementar un método es_valido() que devuelva si el árbol es consistente en sus tipos de datos. Esto implica que todos los nodos intermedios son del mismo tipo, y que todos los nodos hoja son del mismo tipo.
+    def es_valido(self) -> bool:
+        if self.es_hoja():
+            return isinstance(self._dato, self._tipo_hoja)
+        
+        if not all(isinstance(self._dato, self._tipo_nodo) for _ in [self._dato]):
+            return False
+        
+        for subarbol in self._subarboles:
+            if not subarbol.es_valido():
+                return False
+        
+        return True
+    

@@ -115,3 +115,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Ejercicio: Construir desde tuplas anidadas
+# Implementar un método que permita construir una expresión aritmética a partir de una estructura de tuplas anidadas, donde cada tupla tenga 3 elementos: (expresión_1, operación, _expresión_2). Como una expresión puede ser otra tupla, la tupla que le pasemos para construir la expresión final puede ser anidada.
+
+# Por ejemplo: ( (2, *, (9, /, (2, +, 1) ) ), +, (8, -, (3, *, 4) ) )
+
+# Ejercicio: Extender a operaciones n-arias
+# Extender la clase ExpresionAritmetica de forma que soporte operaciones n-arias, incluyendo unarias, ternarias, etc.
+
