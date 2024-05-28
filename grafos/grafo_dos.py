@@ -1,3 +1,4 @@
+#Representacion por lista de adyacencia
 from typing import Generic, Optional, TypeVar
 
 T = TypeVar("T")
@@ -15,11 +16,33 @@ class Grafo(Generic[T]):
     def __init__(self) -> None:
         self.nodos: set[Nodo[T]] = set()
     
-    @staticmethod
     def crear_grafo(valor: T) -> "Grafo[T]":
         nuevo = Grafo()
         nuevo.nodos.add(Nodo(valor))
         return nuevo
+    
+    def agregar_nodo(self, valor: T) -> None:
+        if valor not in self.nodos:
+            nuevo_nodo = Nodo(valor)
+            self.nodos[valor] = nuevo_nodo
+            return nuevo_nodo
+
+    def agregar_arista(self, arista: tuple[T, T]) -> None:
+        if arista[0] in self.nodos:
+            if arista[1] in self.nodos[arista[0]]
+        
+
+    def eliminar_nodo():
+        pass
+
+    def eliminar_arista():
+        pass
+
+    def es_vecino_de():
+        pass
+
+    def vecinos_de():
+        pass
     
     def __str__(self) -> str:
         txt = ""

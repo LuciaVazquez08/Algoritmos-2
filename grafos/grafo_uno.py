@@ -1,3 +1,4 @@
+# Representacion por conjunto de nodos y aristas
 from typing import Generic, Optional, TypeVar
 
 T = TypeVar("T")
@@ -44,13 +45,33 @@ class Grafo(Generic[T]):
             elif e[1] == valor:
                 vecinos.append(e[0])
         return vecinos
+    
+    def dfs(self) -> list[T]:
+        visitados = set()
+        recorrido = []
+        
+        def dfs_interna(nodo: T):
+            if nodo not in visitados:
+                visitados.add(nodo)
+                recorrido.append(nodo)
+                for vecino in self.vecinos_de(nodo):
+                    dfs_interna(vecino)
 
-            
-
-
-
-
-
+        return dfs_interna(self.vertices[0])
+    
+    def bfs(self) -> list[T]:
+        def bfs_interna(q,recorrido) -> list[T]:
+            if not q:
+                return recorrido
+            actual = q.pop(0)
+            if actual not in recorrido:
+                recorrido.append(actual)
+                for v in self.vecinos_de(actual):
+                    q.append(v)
+                return bfs_interna(q,recorrido)
+        q=[self.vertices[0]]
+        return bfs_interna(q,[])
+    
 
 def main():
     g = Grafo()
