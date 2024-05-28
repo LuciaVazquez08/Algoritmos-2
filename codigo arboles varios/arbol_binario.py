@@ -17,6 +17,7 @@ class ArbolBinario(Generic[T]):
 
     def es_vacio(self) -> bool:
         return self.raiz is None
+    
     @staticmethod
     def crear_nodo(
         dato: T) -> "ArbolBinario[T]":

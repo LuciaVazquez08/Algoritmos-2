@@ -62,6 +62,18 @@ class ArbolBinarioOrdenado(ArbolBinario[T]):
             super().insertar_sd(sd)
             raise ValueError("El árbol a insertar no es ordenado o viola la propiedad de orden del árbol actual")
 
+    def pertenece(self,valor : T) -> bool:
+        def buscar_interna(
+            arbol: "ArbolBinarioOrdenado[T]", 
+        ) -> bool:
+            if arbol.es_vacio():
+                return False
+            elif valor == arbol.dato():
+                return True
+            return buscar_interna(arbol.si()) or buscar_interna(arbol.sd())
+        
+        return buscar_interna(self)
+    
     def insertar(self, valor: T):
         if self.es_vacio():
             self.set_raiz(NodoABO(valor))

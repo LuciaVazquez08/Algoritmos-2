@@ -7,15 +7,19 @@ class ArbolN(Generic[T]):
     def __init__(self, dato: T):
         self._dato = dato
         self._subarboles:list[ArbolN] = []
+
     @property
     def dato(self):
         return self._dato
+    
     @dato.setter
     def dato(self, valor: T):
         self._dato = valor
+
     @property
     def subarboles(self):
         return self._subarboles
+    
     @subarboles.setter
     def subarboles(self, arboles: list["ArbolN[T]"]):
         self._subarboles = arboles
